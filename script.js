@@ -1,10 +1,48 @@
 const quotes = [
-    'The only way to do great work is to love what you do. - Steve Jobs',
-    'Innovation distinguishes between a leader and a follower. - Steve Jobs',
-    "Your time is limited, so don't waste it living someone else's life. - Steve Jobs",
+    {
+        quote: 'Be yourself; everyone else is already taken.',
+        author: 'Oscar Wilde',
+    },
+    {
+        quote: 'In the middle of every difficulty lies opportunity.',
+        author: 'Albert Einstein',
+    },
+    {
+        quote: 'The journey of a thousand miles begins with one step.',
+        author: 'Lao Tzu',
+    },
+    {
+        quote: 'That which does not kill us makes us stronger.',
+        author: 'Friedrich Nietzsche',
+    },
+    {
+        quote: 'Life is what happens when you’re busy making other plans.',
+        author: 'John Lennon',
+    },
+    {
+        quote: 'Do what you can, with what you have, where you are.',
+        author: 'Theodore Roosevelt',
+    },
+    {
+        quote: 'Success usually comes to those who are too busy to be looking for it.',
+        author: 'Henry David Thoreau',
+    },
+    {
+        quote: 'Happiness depends upon ourselves.',
+        author: 'Aristotle',
+    },
+    {
+        quote: 'Turn your wounds into wisdom.',
+        author: 'Oprah Winfrey',
+    },
+    {
+        quote: 'The purpose of our lives is to be happy.',
+        author: 'Dalai Lama',
+    },
 ];
 
 const quoteElement = document.getElementById('quote');
+const quoteAuthorElement = document.getElementById('quote-author');
 
 const generateBtn = document.getElementById('generate-btn');
 
@@ -12,7 +50,9 @@ function generateRandomQuote() {
     const randomIndex = Math.floor(Math.random() * quotes.length);
     console.log(randomIndex);
     const randomQuote = quotes[randomIndex];
-    quoteElement.textContent = randomQuote;
+    const { quote, author } = randomQuote;
+    quoteElement.textContent = quote;
+    quoteAuthorElement.textContent = author;
 }
 
 generateBtn.addEventListener('click', generateRandomQuote);

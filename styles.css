@@ -1,6 +1,8 @@
 body {
   font-family: Arial, sans-serif;
-  background-color: #f0f0f0;
+  /* background-color: #f0f0f0; */
+  background-color: #333;
+  color: #fff;
 }
 
 .container {
@@ -9,7 +11,13 @@ body {
   text-align: center;
 }
 
-button {
+#theme-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.btn {
   padding: 10px 20px;
   font-size: 16px;
   background-color: #007bff;
@@ -19,6 +27,15 @@ button {
   border-radius: 10px;
 }
 
-button:hover {
+.btn:hover {
   background-color: #0056b3;
+}
+
+.quote {
+  font-style: italic;
+}
+
+.quote::before,
+.quote::after {
+  content: '"';
 }
