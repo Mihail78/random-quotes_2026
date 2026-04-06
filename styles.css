@@ -57,3 +57,14 @@ body {
   margin: 15px;
   width: 22%;
 }
+
+.author {
+  font-style: italic;
+}
+
+.star-icon {
+  color: gold;
+  font-size: 30px;
+  margin-left: 10px;
+  vertical-align: middle;
+}
