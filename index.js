@@ -16,13 +16,13 @@ let currentQuoteIndex;
 
 function generateRandomQuote() {
     const randomIndex = generateRandomInt(quotes.length);
-    const { quote, author } = quotes[randomIndex];
+    const { quote, author, isFavorite } = quotes[randomIndex];
     quoteElement.textContent = quote;
     currentQuoteIndex = randomIndex;
     quoteElement.textContent = quote;
     quoteAuthorElement.textContent = author;
 
-    toggleFavoriteIcon(quote.isFavorite, toggleFavoriteBtn);
+    toggleFavoriteIcon(isFavorite, toggleFavoriteBtn);
     toggleFavoriteBtn.style.display = 'inline-block';
 }
 
