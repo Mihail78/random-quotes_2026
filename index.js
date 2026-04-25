@@ -1,45 +1,18 @@
-import quotes from './src/quotes.js';
-import {
-    toggleFavoriteIcon,
-    showFavoriteCard,
-    hideFavoriteCard,
-} from './src/favoritesHandler.js';
-import { generateRandomInt } from './src/utils.js';
+import quotes from './src/data/quotes.js';
+import { handleQuote } from './src/handlers/quote.js';
+import toggleTheme from './src/handlers/toggleTheme.js';
+let currentQuote = null;
 
-const quoteElement = document.getElementById('quote');
-const quoteAuthorElement = document.getElementById('quote-author');
+function setCurrentQuote(quote) {
+    currentQuote = quote;
+}
+
 const generateBtn = document.getElementById('generate-btn');
-const toggleFavoriteBtn = document.getElementById('toggle-favorite-btn');
-const favoritesContainer = document.getElementById('favorites-container');
+const themeToggleBtn = document.getElementById('theme-toggle-btn');
 
-let currentQuoteIndex;
+themeToggleBtn.addEventListener('click', () => toggleTheme(themeToggleBtn));
+generateBtn.addEventListener('click', () =>
+    handleQuote(quotes, setCurrentQuote),
+);
 
-function generateRandomQuote() {
-    const randomIndex = generateRandomInt(quotes.length);
-    const { quote, author, isFavorite } = quotes[randomIndex];
-    quoteElement.textContent = quote;
-    currentQuoteIndex = randomIndex;
-    quoteElement.textContent = quote;
-    quoteAuthorElement.textContent = author;
-
-    toggleFavoriteIcon(isFavorite, toggleFavoriteBtn);
-    toggleFavoriteBtn.style.display = 'inline-block';
-}
-
-function toggleFavorite() {
-    const currentQuote = quotes[currentQuoteIndex];
-    currentQuote.isFavorite = !currentQuote.isFavorite;
-
-    toggleFavoriteIcon(currentQuote.isFavorite, toggleFavoriteBtn);
-
-    currentQuote.isFavorite
-        ? showFavoriteCard(
-              currentQuote.quote,
-              currentQuote.author,
-              favoritesContainer,
-          )
-        : hideFavoriteCard(currentQuote.quote);
-}
-
-generateBtn.addEventListener('click', generateRandomQuote);
-toggleFavoriteBtn.addEventListener('click', toggleFavorite);
+export { currentQuote };
