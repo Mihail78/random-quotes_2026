@@ -1,5 +1,5 @@
 import { generateRandomInt } from '../utils.js';
-import { handleFavorite } from './favorites.js';
+import { handleFavorite, favoriteBtn } from './favorites.js';
 
 function handleQuote(quotes, setCurrentQuote) {
     const randomQuote = chooseRandomQuote(quotes);
@@ -13,7 +13,7 @@ function displayQuote(quote) {
     const quoteAuthorElement = document.getElementById('quote-author');
     quoteElement.textContent = text;
     quoteAuthorElement.textContent = author;
-    handleFavorite(isFavorite);
+    handleFavorite(isFavorite, favoriteBtn);
 }
 
 function chooseRandomQuote(quotes) {
