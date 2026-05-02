@@ -2,12 +2,12 @@ import { currentQuote } from '../../index.js';
 
 const favoritesContainer = document.getElementById('favorites-container');
 const favoriteBtn = document.getElementById('favorite-btn');
+
 favoriteBtn.addEventListener('click', () =>
     toggleFavorite(currentQuote, favoriteBtn, favoritesContainer),
 );
 
 hideBtn(favoriteBtn);
-// showBtn(favoriteBtn);
 
 function toggleFavorite(quote, btn, container) {
     quote.isFavorite = !quote.isFavorite;
